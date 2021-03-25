@@ -10,6 +10,7 @@ var app = new Vue({
       currentPos: 0
     },
     methods: {
+      //Funzione per il click dei pulsanti avanti e indietro
       nextImage: function(){
 
         if( this.currentPos < 0){
@@ -20,9 +21,14 @@ var app = new Vue({
         }
 
       },
+      // Funzione per il click del bullet
       clickBullet: function(elem, index){
        
         this.currentPos = index;
       }
-    },
+    }
   })
+
+
+  // Richiamo la  fun zione per l'autoplay
+  autoPlay(app,3000);
