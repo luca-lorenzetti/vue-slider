@@ -21,20 +21,30 @@
     <div id="root">
 
         <div class="carousel">
+            <!-- Left -->
             <div class="left">
-                <a href="#" @click="nextImage(currentPos--)"><i class="fas fa-angle-left"></i></a>
+                <a href="#" @click="nextImage(currentPos--, true)"><i class="fas fa-angle-left"></i></a>
             </div>
+            <!-- Left -->
+
+            <!-- Center -->
             <div class="center">
-                <img v-bind:src=" imagesUrl[currentPos]">
+                <img v-bind:src="imagesUrl[currentPos]">
+
+                <!-- Bulltes -->
                 <div class="bullets">
                     <a href="#" v-for="(image,index) in imagesUrl"><i class="fas fa-circle active" v-if="currentPos == index" @click="clickBullet(image,index)"></i>
-                        <i class="fas fa-circle" v-else="currentPos == index" @click="clickBullet(image,index)"></i></a>
+                        <i class="fas fa-circle" v-else @click="clickBullet(image,index)"></i></a>
                 </div>
+                <!-- /Bulltes -->
             </div>
+            <!-- Center -->
+
+            <!-- Right -->
             <div class="right">
-                <a href="#" @click="nextImage(currentPos++)"><i class="fas fa-angle-right"></i></a>
-                
+                <a href="#" @click="nextImage(currentPos++, true)"><i class="fas fa-angle-right"></i></a>
             </div>
+            <!-- /Right -->
         </div>
         
     </div>

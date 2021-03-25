@@ -1,4 +1,4 @@
-var app = new Vue({
+  var app = new Vue({
     el: '#root',
     data: {
       imagesUrl:[
@@ -7,11 +7,17 @@ var app = new Vue({
         "https://cdn.mos.cms.futurecdn.net/FUE7XiFApEqWZQ85wYcAfM.jpg",
         "https://static.photocdn.pt/images/articles/2017/04/28/iStock-546424192.jpg"
       ],
-      currentPos: 0
+      currentPos: 0,
+      isAutoPlay: true
     },
     methods: {
       //Funzione per il click dei pulsanti avanti e indietro
-      nextImage: function(){
+      nextImage: function(currentPosition, auto){
+
+        //Controllo se è impostato su autoplay e in caso contrario fermo il autoplay
+        if( auto ){
+          clearInterval(this.autoInterval);
+        } 
 
         if( this.currentPos < 0){
           this.currentPos = this.imagesUrl.length-1;
@@ -19,16 +25,18 @@ var app = new Vue({
         else if( this.currentPos > this.imagesUrl.length-1){
           this.currentPos = 0;
         }
-
       },
       // Funzione per il click del bullet
       clickBullet: function(elem, index){
        
         this.currentPos = index;
       }
+    },
+    mounted() {
+        // Richiamo la  funzione per l'autoplay
+          this.autoInterval = autoPlay(this, 3000);
     }
   })
 
 
-  // Richiamo la  fun zione per l'autoplay
-  autoPlay(app,3000);
+

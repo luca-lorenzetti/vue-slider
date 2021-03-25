@@ -1,7 +1,10 @@
 // Funzione per l'autoPlay
 const autoPlay = (app,time) =>{
   
- setInterval(function(){
-    app.nextImage(app.currentPos++);
+ let auto = setInterval(function(){
+    app.nextImage(app.currentPos++, false);
    },time);
+
+   return auto;
 }
+
