@@ -27,8 +27,8 @@
             <div class="center">
                 <img v-bind:src=" imagesUrl[currentPos]">
                 <div class="bullets">
-                    <a href="#" v-for="(image,index) in imagesUrl"><i class="fas fa-circle active" v-if="currentPos == index "></i>
-                        <i class="fas fa-circle" v-else="currentPos == index "></i></a>
+                    <a href="#" v-for="(image,index) in imagesUrl"><i class="fas fa-circle active" v-if="currentPos == index" @click="clickBullet(image,index)"></i>
+                        <i class="fas fa-circle" v-else="currentPos == index" @click="clickBullet(image,index)"></i></a>
                 </div>
             </div>
             <div class="right">

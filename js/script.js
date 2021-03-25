@@ -10,8 +10,8 @@ var app = new Vue({
       currentPos: 0
     },
     methods: {
-      nextImage: function(elem, index){
-        
+      nextImage: function(){
+
         if( this.currentPos < 0){
           this.currentPos = this.imagesUrl.length-1;
         }
@@ -19,6 +19,10 @@ var app = new Vue({
           this.currentPos = 0;
         }
 
+      },
+      clickBullet: function(elem, index){
+       
+        this.currentPos = index;
       }
     },
   })
