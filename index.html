@@ -34,8 +34,7 @@
 
                 <!-- Bulltes -->
                 <div class="bullets">
-                    <a href="#" v-for="(image,index) in imagesUrl"><i class="fas fa-circle active" v-if="currentPos == index" @click="clickBullet(image,index)"></i>
-                        <i class="fas fa-circle" v-else @click="clickBullet(image,index)"></i></a>
+                    <a href="#" v-for="(image,index) in imagesUrl"><i class="fas fa-circle" :class="{'active': currentPos == index}" @click="clickBullet(image,index)"></i>
                 </div>
                 <!-- /Bulltes -->
             </div>

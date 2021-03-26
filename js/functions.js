@@ -2,7 +2,7 @@
 const autoPlay = (app,time) =>{
   
  let auto = setInterval(function(){
-    app.nextImage(app.currentPos++, false);
+    app.nextImage(false,app.currentPos++);
    },time);
 
    return auto;
